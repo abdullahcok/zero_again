@@ -1,0 +1,103 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url("https://source.unsplash.com/random") center no-repeat;
+  background-size: cover;
+  z-index: 0;
+  color: #fff;
+}
+
+body::after {
+    content: "";
+    width: 100%;
+    height: inherit;
+    background-color: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+
+.demo{
+  font-size: 20px;
+  margin: 0 10px;
+}
+.demo::after,
+.demo::before{
+  font-size: 30px;
+}
+.demo::before{
+  content:open-quote;
+}
+.demo::after{
+  content: close-quote;
+}
+
+.was-wont{
+  font-size: 20px;
+}
+.was-wont::before{
+  content: "I was here.";
+  font-size: 20px;
+  margin: 0 20px;
+}
+.was-wont::after{
+  content: "I'm here.";
+  font-size: 20px;
+}
+
+.be, .go{
+  margin: 0 10px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #4D545B;
+  display: block;
+}
+.be::after, .go::after{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 19px;
+  margin: 0 5px;
+}
+.go::after{
+  content: "\f197";
+  color: #027AEE;
+}
+.be::after{
+  content: "\f164";
+  color:#D52437;
+}
+
+
+.sit::before,
+.sit::after{
+  content: "";
+  width: 54px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+.sit::before{
+  transform-origin: left;
+}
+.sit::after{
+  transform-origin:right;
+}
+.sit:hover::before,
+.sit:hover::after{
+  margin: 10px 0;
+  transform: scaleX(20);
+}
